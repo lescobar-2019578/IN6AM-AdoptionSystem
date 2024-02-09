@@ -88,11 +88,15 @@ export const deleteU = async(req, res)=>{
     try {
         //Obtener el id
         let { id } = req.params
+
         //Validar si esta logeado y es el mismo 
+
         //Eliminar (deleteOne // findOneAndDelete)
         let deleteUser = await User.findOneAndDelete({_id: id})
+        
         //Verificar que se elimino
         if(!deleteUser) return res.status(404).send({message: 'Account not found and not deleted'})
+        
         //Responder
         return res.send({message: `Account with username ${deleteUser.username} deleted successfully`})//status 200
     } catch (err) {

@@ -2,7 +2,8 @@ import mongoose from "mongoose"
 
 const animalSchema = mongoose.Schema({
     keeper:{
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
         required: true
     },
     nameAnimal:{

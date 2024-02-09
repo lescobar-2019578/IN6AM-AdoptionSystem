@@ -9,7 +9,7 @@ import helmet from 'helmet'
 import cors from 'cors'
 import { config } from "dotenv"
 import userRoutes from '../src/user/user.routes.js'
-
+import animalRoutes from '../src/animal/animal.routes.js'
 
 //Configuraciones
 const app = express()
@@ -25,6 +25,8 @@ app.use(morgan('dev')) //Logs de solicitudes al servidor HTTP
 
 //Declaración de rutas
 app.use(userRoutes)
+app.use(animalRoutes)
+
 
 //Levantar el servidor
 export const initServer = ()=>{
